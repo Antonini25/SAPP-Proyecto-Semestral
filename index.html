@@ -1,0 +1,149 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SAPP - Sistema de Automatización de Procesos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header>
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">SAPP</div>
+          <div class="subtitle">Sistema de Automatización</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="userDisplay" class="small">Visita</div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- Sidebar eliminado a solicitud del usuario -->
+
+      <main class="content" id="main">
+        <!-- PANTALLA INICIAL: SOLO 2 BOTONES (Cliente / Usuario) -->
+        <section id="welcomeSection" class="center-pane">
+          <div class="welcome-card">
+            <div class="welcome-title">Bienvenido a SAPP</div>
+            <p>Sistema de Automatización de Procesos Administrativos y de Producción — demo estático</p>
+            <div class="row">
+              <button class="btn primary" id="btnCliente">Entrar como Cliente</button>
+              <button class="btn" id="btnUsuario">Entrar como Usuario (Login)</button>
+            </div>
+            <!-- Login oculto al inicio -->
+            <div id="loginArea" class="row hidden login-area">
+              <div class="login-field">
+                <input id="loginUser" placeholder="Usuario">
+              </div>
+              <div class="login-field">
+                <input id="loginPass" placeholder="Contraseña" type="password">
+              </div>
+              <div class="login-actions">
+                <button class="btn primary" id="btnLoginDo">Iniciar Sesión</button>
+                <button class="btn" id="btnLoginCancel">Cancelar</button>
+              </div>
+              <div id="loginMsg" class="small login-msg"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MÓDULO CLIENTE -->
+        <section id="clienteSection" class="hidden">
+          <div class="section-header">
+            <div class="section-title">Interfaz de Cliente (Preview)</div>
+            <div class="pill">👋 Bienvenido cliente</div>
+            <div class="section-actions">
+              <button class="btn ghost" id="viewCartBtn">🛒 Ver Carrito (<span id="cartCount">0</span>)</button>
+              <button class="btn" id="exitCliente">Salir Cliente</button>
+            </div>
+          </div>
+          <div class="client-main">
+            <aside class="client-side">
+              <ul>
+                <li data-view="menuMain" class="active">🏠 Menú Principal</li>
+                <li data-view="menuCustom">🎨 Personalizar pedido</li>
+                <li data-view="menuCart">🛒 Carrito</li>
+                <li data-view="menuConfig">⚙️ Configuración</li>
+              </ul>
+            </aside>
+            <div class="client-panel">
+              <div id="clientPanelContent"></div>
+            </div>
+            <aside class="cart-aside">
+              <div class="cart" id="cartPane">
+                <h4>🛒 Carrito</h4>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                  <strong>Total: $<span id="cartTotal">0.00</span></strong>
+                </div>
+                <div class="cart-actions">
+                  <button class="btn primary" id="checkoutBtn">Pagar</button>
+                  <button class="btn" id="clearCart">Vaciar</button>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- MÓDULO ADMIN -->
+        <section id="adminSection" class="hidden">
+          <div class="section-header">
+            <div class="section-title">Panel Administrativo</div>
+            <div class="section-actions">
+              <div class="small">Usuario: <span id="adminName">Administrador</span></div>
+              <button class="btn ghost" id="logoutBtn">⏻ Cerrar sesión</button>
+            </div>
+          </div>
+          <div class="admin-wrapper">
+            <nav class="admin-nav" id="adminNav">
+              <a href="#" data-admin="dashboard" class="admin-link active">📊 Dashboard</a>
+              <a href="#" data-admin="inventario" class="admin-link">📦 Inventario</a>
+              <a href="#" data-admin="flujo" class="admin-link">💵 Flujo de Caja</a>
+              <a href="#" data-admin="proveedores" class="admin-link">🏭 Proveedores</a>
+              <a href="#" data-admin="clientes" class="admin-link">👥 Clientes</a>
+              <a href="#" data-admin="reportes" class="admin-link">📑 Reportes</a>
+              <a href="#" data-admin="config" class="admin-link">⚙️ Configuración</a>
+            </nav>
+            <div id="adminContent"></div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>© 2025 SAPP. Sistema de gestión empresarial - Demo estático</footer>
+  </div>
+
+  <!-- MODAL FACTURA -->
+  <div id="invoiceOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Factura #<span id="invNumber"></span></h3>
+        <button id="invClose" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="small">Fecha: <span id="invDate"></span></p>
+        <p class="small">Cliente: <span id="invClient">Cliente demo</span></p>
+        <div class="modal-section">
+          <h4>Detalle de la compra</h4>
+          <div id="invItems"></div>
+        </div>
+        <div class="modal-total">
+          <strong>Total: $<span id="invTotal"></span></strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="invDownload" class="btn primary">Descargar</button>
+        <button id="invCloseBottom" class="btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
