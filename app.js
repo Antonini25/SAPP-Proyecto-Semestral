@@ -2,10 +2,18 @@
 //  CONFIGURACIÓN SUPABASE
 // =======================
 
-const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
-const SUPABASE_ANON = "TU-ANON-KEY";
+const SUPABASE_URL = "https://wpqalerpqackhmevcevz.supabase.co";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwcWFsZXJwcWFja2htZXZjZXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNDkzOTEsImV4cCI6MjA4MDYyNTM5MX0.iJWEeMNBu7GC94xSKIVUCCuGXmIB1Vj2ZoC00IECthI";
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+// =======================
+//  TEST DE CONEXIÓN
+// =======================
+async function testSupabase() {
+  const { data, error } = await supabase.from("productos").select("*");
+  console.log("SUPABASE TEST:", data, error);
+}
+testSupabase();
 
 (function(){
   document.addEventListener('DOMContentLoaded', () => {
@@ -986,4 +994,5 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
     }
   });
 })();
+
 
