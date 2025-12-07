@@ -1,3 +1,11 @@
+// =======================
+//  CONFIGURACIÓN SUPABASE
+// =======================
+
+const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+const SUPABASE_ANON = "TU-ANON-KEY";
+
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 (function(){
   document.addEventListener('DOMContentLoaded', () => {
@@ -978,3 +986,4 @@
     }
   });
 })();
+
