@@ -1,0 +1,6 @@
+Codigo,Nombre,Categoria,Cantidad,Proveedor,Precio
+PRD-001,"Combo Hamburguesa",Comida,120,"Proveedor 1",8.5
+PRD-002,"Combo Pollo",Comida,75,"Proveedor 1",9
+PRD-003,"Refresco 500ml",Bebidas,200,"Proveedor 1",1.5
+PRD-004,"Papas Fritas",Complementos,90,"Proveedor 1",2.5
+PRD-005,"Caja de Cartón",Insumos,350,"Proveedor 1",0.6

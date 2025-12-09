@@ -1,0 +1,4 @@
+Usuarios,Nombre,Correo,Rol
+admin,administrador,admin@sapp.com,administrador
+gerente,"Gerente General",gerente@sapp.com,gerente
+Ventas,"Empleado Ventas",ventas@sapp.com,ventas

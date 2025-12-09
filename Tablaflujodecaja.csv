@@ -1,0 +1,5 @@
+Fecha,Tipo,Concepto,Monto,Responsable
+20251108,Egreso,"Pago servicio",120,Admin
+20251109,Ingreso,"Pedido Online",450,Ventas
+20251110,Egreso,"Compra Insumos",320,Compras
+20251110,Ingreso,"Venta Local",850,Ventas
